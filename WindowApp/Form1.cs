@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace WindowApp
 {
@@ -67,7 +68,7 @@ namespace WindowApp
 
             label1.Text = ("Wartość przedmiotów: " + BP.bp_value.ToString());
             //label2.Text = ("Kolejność: " + result);
-            label2.Text = ("Kolejność: " + str_tab);
+            label2.Text = ("Kolejność: ");
             
             //label2.Text = ("Kolejność: " + BP.bp_value.ToString());
         }
@@ -85,8 +86,8 @@ namespace WindowApp
 
         private void Music_Load(object sender, EventArgs e)
         {
-          /* SoundPlayer audio = new SoundPlayer(WindowApp.Properties.Resources.Connect); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
-           audio.Play();*/
+            SoundPlayer audio = new SoundPlayer(WindowApp.Properties.Resources.plecak);
+           audio.Play();
         }
     }
 }
