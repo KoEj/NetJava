@@ -76,9 +76,10 @@ namespace WindowApp
                 {
                     BP.queue[i] = BP.queue[i] + 1;
                     str_tab += BP.queue[i].ToString();
+                    str_tab += " ";
                 }
             }
-            string result = String.Join(",", str_tab.Select(x => x.ToString()).ToArray());
+            string result = String.Join("", str_tab.Select(x => x.ToString()).ToArray());
 
             label1.Text = ("Wartość przedmiotów: " + BP.bp_value.ToString());
             label2.Text = ("Kolejność: " + result);
