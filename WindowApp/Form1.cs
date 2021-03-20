@@ -55,19 +55,19 @@ namespace WindowApp
             BP.sort();
             BP.put_in();
 
+
+            //string str_tab[1000];
+
             for (int i = 0; i < BP.elements_n; i++)
             {
-                if (BP.inout[i] == 1)
-                {
-                    //BP.queue[i] + 1;
-                }
+                  //str_tab[i]  =  BP.inout[i].ToString();
             }
 
             string result = String.Join(",", BP.queue.Select(x => x.ToString()).ToArray());
 
             label1.Text = ("Wartość przedmiotów: " + BP.bp_value.ToString());
             //label2.Text = ("Kolejność: " + result);
-            label2.Text = ("Kolejność: ");
+            label2.Text = ("Kolejność: " + str_tab);
             
             //label2.Text = ("Kolejność: " + BP.bp_value.ToString());
         }
@@ -85,10 +85,8 @@ namespace WindowApp
 
         private void Music_Load(object sender, EventArgs e)
         {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-            player.SoundLocation = Application.StartupPath + "plecak.wav";
-            player.Load();
-            player.Play();
+          /* SoundPlayer audio = new SoundPlayer(WindowApp.Properties.Resources.Connect); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
+           audio.Play();*/
         }
     }
 }
