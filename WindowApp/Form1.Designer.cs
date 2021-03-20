@@ -142,6 +142,7 @@ namespace WindowApp
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label97);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Name = "Form1";
             this.Text = "Problem plecakowy";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
