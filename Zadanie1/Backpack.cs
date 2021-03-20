@@ -13,11 +13,11 @@ namespace Zadanie1 {
         public int bp_value = 0;
 
 
-        List<int> values = new List<int>();
-        List<int> size = new List<int>();
-        List<int> ratio = new List<int>();
-        List<int> queue = new List<int>();
-        List<int> inout = new List<int>();
+        public List<int> values = new List<int>();
+        public List<int> size = new List<int>();
+        public List<int> ratio = new List<int>();
+        public List<int> queue = new List<int>();
+        public List<int> inout = new List<int>();
 
         public Backpack(int t1, int t2)
         {
@@ -103,7 +103,7 @@ namespace Zadanie1 {
             for (int i = 0; i < elements_n; i++)
             {
                 if (inout[i] == 1)
-                    Console.WriteLine("{0,2} {1,5} {2,4} {3,5}", queue[i], values[i], size[i], ratio[i]);
+                    Console.WriteLine("{0,2} {1,5} {2,4} {3,5}", queue[i]+1, values[i], size[i], ratio[i]);
             }
         }
     }

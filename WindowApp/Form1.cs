@@ -39,7 +39,6 @@ namespace WindowApp
 
             if (textBox2.Text.Length > 0 && textBox1.Text.Length > 0)
             {
-                label1.Text = "Kolejność";
                 backpack_sort(sender, e);
             }
 
@@ -56,16 +55,21 @@ namespace WindowApp
             BP.sort();
             BP.put_in();
 
-            label2.Text = BP.bp_value.ToString();
+            for (int i = 0; i < BP.elements_n; i++)
+            {
+                if (BP.inout[i] == 1)
+                {
+                    //BP.queue[i] + 1;
+                }
+            }
 
+            string result = String.Join(",", BP.queue.Select(p => p.ToString()).ToArray());
 
-            //Console.WriteLine("{0} {1} {2} {3}", "lp", "value", "weight", "ratio");
-            //for (int i = 0; i < elements_n; i++)
-            //{
-            //    if (inout[i] == 1)
-            //        Console.WriteLine("{0,2} {1,5} {2,4} {3,5}", queue[i], values[i], size[i], ratio[i]);
-            //}
+            label1.Text = ("Wartość przedmiotów: " + BP.bp_value.ToString());
+            label2.Text = ("Kolejność: " + result);
+            //label2.Text = ("Kolejność: " + BP.bp_value.ToString());
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             check(sender, e);
