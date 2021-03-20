@@ -66,7 +66,9 @@ namespace WindowApp
             string result = String.Join(",", BP.queue.Select(x => x.ToString()).ToArray());
 
             label1.Text = ("Wartość przedmiotów: " + BP.bp_value.ToString());
-            label2.Text = ("Kolejność: " + result);
+            //label2.Text = ("Kolejność: " + result);
+            label2.Text = ("Kolejność: ");
+            
             //label2.Text = ("Kolejność: " + BP.bp_value.ToString());
         }
 
@@ -74,6 +76,19 @@ namespace WindowApp
         {
             check(sender, e);
             //label2.Text = "wylosowana kolejnosc";
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Music_Load(sender, e);
+        }
+
+        private void Music_Load(object sender, EventArgs e)
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = Application.StartupPath + "plecak.wav";
+            player.Load();
+            player.Play();
         }
     }
 }
