@@ -23,7 +23,6 @@ namespace WindowApp
         {
             if (textBox1.Text.Length > 0)
             {
-                int t1 = int.Parse(textBox1.Text);
             }
             else 
             {
@@ -32,7 +31,6 @@ namespace WindowApp
 
             if (textBox2.Text.Length > 0)
             {
-                int t2 = int.Parse(textBox2.Text);
             }
             else
             {
@@ -40,16 +38,38 @@ namespace WindowApp
             }
 
             if (textBox2.Text.Length > 0 && textBox1.Text.Length > 0) label1.Text = "Kolejność";
+            if (textBox2.Text.Length > 0 && textBox1.Text.Length > 0) backpack_sort(sender, e);
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             check_null(sender, e);
- 
-            
-            //label2.Text="wylosowana kolejnosc"
+            //label2.Text = "wylosowana kolejnosc";
         }
+
+        private void backpack_sort(object sender, EventArgs e)
+        {
+            int t1 = int.Parse(textBox1.Text);
+            int t2 = int.Parse(textBox2.Text);
+
+            Zadanie1.Backpack BP = new Zadanie1.Backpack(t1, t2);
+
+            BP.init();
+            BP.sort();
+            BP.put_in();
+
+           // label2.Text = BP.bp_value;
+
+
+            //Console.WriteLine("{0} {1} {2} {3}", "lp", "value", "weight", "ratio");
+            //for (int i = 0; i < elements_n; i++)
+            //{
+            //    if (inout[i] == 1)
+            //        Console.WriteLine("{0,2} {1,5} {2,4} {3,5}", queue[i], values[i], size[i], ratio[i]);
+            //}
+        }
+
 
     }
 }

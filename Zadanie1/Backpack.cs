@@ -22,7 +22,6 @@ namespace Zadanie1 {
         {
             elements_n = t1;
             backpack_size = t2;
-
         }
 
         public void init()
