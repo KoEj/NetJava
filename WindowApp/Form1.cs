@@ -19,7 +19,7 @@ namespace WindowApp
             label2.Text = "";
         }
 
-        private void check_null(object sender, EventArgs e)
+        private void check(object sender, EventArgs e)
         {
             if (textBox1.Text.Length > 0)
             {
@@ -37,15 +37,12 @@ namespace WindowApp
                 MessageBox.Show("Brak dopuszczalnej wagi plecaka!", "Błąd 2", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (textBox2.Text.Length > 0 && textBox1.Text.Length > 0) label1.Text = "Kolejność";
-            if (textBox2.Text.Length > 0 && textBox1.Text.Length > 0) backpack_sort(sender, e);
+            if (textBox2.Text.Length > 0 && textBox1.Text.Length > 0)
+            {
+                label1.Text = "Kolejność";
+                backpack_sort(sender, e);
+            }
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            check_null(sender, e);
-            //label2.Text = "wylosowana kolejnosc";
         }
 
         private void backpack_sort(object sender, EventArgs e)
@@ -59,7 +56,7 @@ namespace WindowApp
             BP.sort();
             BP.put_in();
 
-           // label2.Text = BP.bp_value;
+            label2.Text = BP.bp_value.ToString();
 
 
             //Console.WriteLine("{0} {1} {2} {3}", "lp", "value", "weight", "ratio");
@@ -69,7 +66,10 @@ namespace WindowApp
             //        Console.WriteLine("{0,2} {1,5} {2,4} {3,5}", queue[i], values[i], size[i], ratio[i]);
             //}
         }
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            check(sender, e);
+            //label2.Text = "wylosowana kolejnosc";
+        }
     }
 }

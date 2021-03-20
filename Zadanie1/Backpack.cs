@@ -7,9 +7,10 @@ using System.Runtime.InteropServices.ComTypes;
 namespace Zadanie1 {
     public class Backpack
     {
-        int elements_n;
-        int backpack_size;
-        int bp_value = 0;
+
+        public int elements_n;
+        public int backpack_size;
+        public int bp_value = 0;
 
 
         List<int> values = new List<int>();
