@@ -61,16 +61,6 @@ namespace WindowApp.Properties {
         }
         
         /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icon {
-            get {
-                object obj = ResourceManager.GetObject("icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.IO.UnmanagedMemoryStream podobny do zasobu System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream plecak {

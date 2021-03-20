@@ -56,19 +56,24 @@ namespace WindowApp
             BP.sort();
             BP.put_in();
 
+            string result="";
 
             //string str_tab[1000];
 
             for (int i = 0; i < BP.elements_n; i++)
             {
-                  //str_tab[i]  =  BP.inout[i].ToString();
+                if (BP.inout[i] == 1)
+                {
+                    //str_tab[i]  =  BP.inout[i]
+                    result = String.Join(",", BP.queue.Select(x => x.ToString()).ToArray());
+                }
             }
 
-            string result = String.Join(",", BP.queue.Select(x => x.ToString()).ToArray());
+            
 
             label1.Text = ("Wartość przedmiotów: " + BP.bp_value.ToString());
-            //label2.Text = ("Kolejność: " + result);
-            label2.Text = ("Kolejność: ");
+            label2.Text = ("Kolejność: " + result);
+            //label2.Text = ("Kolejność: ");
             
             //label2.Text = ("Kolejność: " + BP.bp_value.ToString());
         }
