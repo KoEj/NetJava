@@ -42,7 +42,18 @@ namespace WindowApp
             {
                 backpack_sort(sender, e);
             }
+        }
 
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == 8)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void backpack_sort(object sender, EventArgs e)
@@ -56,26 +67,21 @@ namespace WindowApp
             BP.sort();
             BP.put_in();
 
-            string result="";
 
-            //string str_tab[1000];
+            string str_tab="";
 
             for (int i = 0; i < BP.elements_n; i++)
             {
                 if (BP.inout[i] == 1)
                 {
-                    //str_tab[i]  =  BP.inout[i]
-                    result = String.Join(",", BP.queue.Select(x => x.ToString()).ToArray());
+                    BP.queue[i] = BP.queue[i] + 1;
+                    str_tab += BP.queue[i].ToString();
                 }
             }
-
-            
+            string result = String.Join(",", str_tab.Select(x => x.ToString()).ToArray());
 
             label1.Text = ("Wartość przedmiotów: " + BP.bp_value.ToString());
             label2.Text = ("Kolejność: " + result);
-            //label2.Text = ("Kolejność: ");
-            
-            //label2.Text = ("Kolejność: " + BP.bp_value.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -92,7 +98,9 @@ namespace WindowApp
         private void Music_Load(object sender, EventArgs e)
         {
             SoundPlayer audio = new SoundPlayer(WindowApp.Properties.Resources.plecak);
-           audio.Play();
+            audio.Play();
         }
+
+
     }
 }
