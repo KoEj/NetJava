@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace API
 {
@@ -15,11 +17,22 @@ namespace API
         public API_App()
         {
             InitializeComponent();
+            load();
         }
 
         private void API_App_Load(object sender, EventArgs e)
         {
 
         }
+
+        public static async void load()
+        {
+            HttpClient httpClient = new HttpClient();
+            string call = "http:// tu link";
+
+            string json = await httpClient.GetStringAsync(call);
+        }
+
+        
     }
 }
