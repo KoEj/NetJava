@@ -17,5 +17,9 @@ namespace API
             InitializeComponent();
         }
 
+        private void API_App_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
