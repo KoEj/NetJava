@@ -93,15 +93,8 @@ namespace WindowApp
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Music_Load(sender, e);
-        }
-
-        private void Music_Load(object sender, EventArgs e)
-        {
             SoundPlayer audio = new SoundPlayer(WindowApp.Properties.Resources.plecak);
             audio.Play();
         }
-
-
     }
 }
