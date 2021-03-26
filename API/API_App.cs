@@ -18,9 +18,11 @@ namespace API
         public API_App()
         {
             InitializeComponent();
+            label2.Text = "symbol";
+            label3.Text = ""; 
         }
 
-        public async void load()
+        public async void last_deleted()
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage
@@ -33,7 +35,7 @@ namespace API
                 {
                     { "x-rapidapi-key", "bb39cfd0f9mshfa3efd401f9eb7cp12860djsn6e8a143a24f8" },
                     { "x-rapidapi-host", "unogs-unogs-v1.p.rapidapi.com" },
-                    //{ "x-rapidapi-host", "numbersapi.p.rapidapi.com" },
+
                 },
             };
 
@@ -41,9 +43,18 @@ namespace API
             {
                 response.EnsureSuccessStatusCode();
                 string body = await response.Content.ReadAsStringAsync();
-                label3.Text = (body);
+                label3.Text = body;
+
+                var read = body.Split("\"");
+                if (read[3] == "0") richTextBox1.Text = "Brak wyników w bazie!";
+                else if (read[3]=="1") richTextBox1.Text ="Netflix ID: " + read[9] + "\nTytuł: " + read[13] + "\nData usunięcia: " + read[21];
+
+
+                //{"COUNT":"1","ITEMS":[{"netflixid":"60000861","title":"American Psycho",
+                //"ccode":"PL","date":"2021-03-26 00:18:43"}]}
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -52,8 +63,10 @@ namespace API
             symbol = baza.LoadingStates(nazwa);
             label2.Text = symbol;
 
-            if (symbol != "Brak znalezienia") load();
+            if (symbol != "Brak znalezienia") last_deleted();
+            else MessageBox.Show("Nie ma takiego państwa!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+ 
         }
-            
     }
 }

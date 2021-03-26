@@ -25,12 +25,11 @@ namespace API
             {
                  while ((line = sr.ReadLine()) != null)
                  {
-
                      var read = line.Split("\t");
-                     code = read[0];
+                     code = read[0].ToLower();
                      name_PL = read[1].ToLower();
                      name_EN = read[2].ToLower();
-                     if (nazwa.Equals(name_PL) || nazwa.Equals(name_EN)) return code;
+                     if (nazwa.Equals(name_PL) || nazwa.Equals(name_EN) || nazwa.Equals(code)) return code;
 
                 }
                  sr.Close();

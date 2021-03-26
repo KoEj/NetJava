@@ -185,8 +185,7 @@ PM	St. Pierre i Miquelon	St Pierre and Miquelon
 KN	St.Kitts i Nevis	St.Kittsand and Nevis
 LC	St.Lucia	St.Lucia
 VC	St.Vincent i Grenadyny	St Vincent and the Grenadines
-US	Stany Zjedn. Ameryki	United States of America
-	W∏àcznie z Portoryko PR	
+US	Stany Zjednoczone	USA
 SD	Sudan	Sudan
 SR	Surinam	Suriname
 SY	Syria	Syrian Arab Republic
