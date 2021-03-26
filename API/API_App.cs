@@ -14,7 +14,7 @@ namespace API
 {
     public partial class API_App : Form
     {
-
+        string symbol = "";
         public API_App()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace API
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?t=deleted&cl=PL&st=1"),
+                RequestUri = new Uri("https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?t=deleted&cl=" + symbol + "&st=1"),
                 //RequestUri= new Uri("https://numbersapi.p.rapidapi.com/6/21/date?fragment=true&json=true"),
 
             Headers =
@@ -41,22 +41,19 @@ namespace API
             {
                 response.EnsureSuccessStatusCode();
                 string body = await response.Content.ReadAsStringAsync();
-                label1.Text = (body);
+                label3.Text = (body);
             }
-           /*
-            HttpClient httpClient = new HttpClient();
-            string call = "http://api.openweathermap.org/data/2.5/weather?id=1&appid=5b699a1e4b97ac1a6a9cee3366eb509c";
-
-            string json = await httpClient.GetStringAsync(call);
-            label1.Text = (json);
-           */
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string nazwa = textBox1.Text.ToLower();
             Baza baza = new Baza(nazwa);
-            label2.Text = baza.LoadingStates(nazwa);
+            symbol = baza.LoadingStates(nazwa);
+            label2.Text = symbol;
+
+            if (symbol != "Brak znalezienia") load();
         }
+            
     }
 }
