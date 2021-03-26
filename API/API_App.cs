@@ -17,10 +17,7 @@ namespace API
 
         public API_App()
         {
-
             InitializeComponent();
-            label1.Text = "Wiadomość testowa";
-            //load();
         }
 
         public async void load()
@@ -35,8 +32,8 @@ namespace API
             Headers =
                 {
                     { "x-rapidapi-key", "bb39cfd0f9mshfa3efd401f9eb7cp12860djsn6e8a143a24f8" },
-                    //{ "x-rapidapi-host", "numbersapi.p.rapidapi.com" },
                     { "x-rapidapi-host", "unogs-unogs-v1.p.rapidapi.com" },
+                    //{ "x-rapidapi-host", "numbersapi.p.rapidapi.com" },
                 },
             };
 
@@ -45,7 +42,6 @@ namespace API
                 response.EnsureSuccessStatusCode();
                 string body = await response.Content.ReadAsStringAsync();
                 label1.Text = (body);
-                //Console.WriteLine(body);
             }
            /*
             HttpClient httpClient = new HttpClient();
@@ -56,17 +52,11 @@ namespace API
            */
         }
 
-        private void states_search()
-        {
-            string nazwa = textBox1.Text;
-            Baza baza = new Baza(nazwa);
-            label2.Text=baza.LoadingStates(nazwa);
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            states_search();
+            string nazwa = textBox1.Text.ToLower();
+            Baza baza = new Baza(nazwa);
+            label2.Text = baza.LoadingStates(nazwa);
         }
     }
 }

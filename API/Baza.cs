@@ -28,12 +28,11 @@ namespace API
 
                      var read = line.Split("\t");
                      code = read[0];
-                     name_PL = read[1];
-                    if (nazwa.Equals(name_PL)) return code;
-                     name_EN = read[2];
-                     //Console.WriteLine(line);
+                     name_PL = read[1].ToLower();
+                     name_EN = read[2].ToLower();
+                     if (nazwa.Equals(name_PL) || nazwa.Equals(name_EN)) return code;
 
-                 }
+                }
                  sr.Close();
                 return "Brak znalezienia";
             }
