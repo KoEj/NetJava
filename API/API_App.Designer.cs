@@ -68,22 +68,25 @@ namespace API
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(193, 287);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.Size = new System.Drawing.Size(127, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.label2.Text = "dane testowe - symbol";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 70);
+            this.label3.Location = new System.Drawing.Point(24, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
+            this.label3.Size = new System.Drawing.Size(179, 15);
             this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
+            this.label3.Text = "dane testowe - pobieranie z bazy";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(378, 49);
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.richTextBox1.Location = new System.Drawing.Point(399, 49);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(232, 108);
             this.richTextBox1.TabIndex = 5;
