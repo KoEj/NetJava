@@ -34,7 +34,7 @@ namespace API
             Headers =
                 {
                     { "x-rapidapi-key", "bb39cfd0f9mshfa3efd401f9eb7cp12860djsn6e8a143a24f8" },
-                    { "x-rapidapi-host", "unogs-unogs-v1.p.rapidapi.com" },
+                    { "x-rapidapi-host", "unogs-unogs-v1.p.rapidapi.com"  },
 
                 },
             };
