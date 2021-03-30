@@ -1,0 +1,15 @@
+E:\NetJava\API\bin\Debug\netcoreapp3.1\API.exe
+E:\NetJava\API\bin\Debug\netcoreapp3.1\API.deps.json
+E:\NetJava\API\bin\Debug\netcoreapp3.1\API.runtimeconfig.json
+E:\NetJava\API\bin\Debug\netcoreapp3.1\API.runtimeconfig.dev.json
+E:\NetJava\API\bin\Debug\netcoreapp3.1\API.dll
+E:\NetJava\API\bin\Debug\netcoreapp3.1\API.pdb
+E:\NetJava\API\obj\Debug\netcoreapp3.1\API.csprojAssemblyReference.cache
+E:\NetJava\API\obj\Debug\netcoreapp3.1\API.Form1.resources
+E:\NetJava\API\obj\Debug\netcoreapp3.1\API.csproj.GenerateResource.cache
+E:\NetJava\API\obj\Debug\netcoreapp3.1\API.AssemblyInfoInputs.cache
+E:\NetJava\API\obj\Debug\netcoreapp3.1\API.AssemblyInfo.cs
+E:\NetJava\API\obj\Debug\netcoreapp3.1\API.csproj.CoreCompileInputs.cache
+E:\NetJava\API\obj\Debug\netcoreapp3.1\API.dll
+E:\NetJava\API\obj\Debug\netcoreapp3.1\API.pdb
+E:\NetJava\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache

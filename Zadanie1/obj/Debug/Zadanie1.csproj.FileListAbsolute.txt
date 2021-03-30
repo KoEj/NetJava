@@ -1,0 +1,7 @@
+E:\NetJava\Zadanie1\obj\Debug\Zadanie1.csprojAssemblyReference.cache
+E:\NetJava\Zadanie1\obj\Debug\Zadanie1.csproj.CoreCompileInputs.cache
+E:\NetJava\Zadanie1\bin\Debug\Zadanie1.exe.config
+E:\NetJava\Zadanie1\bin\Debug\Zadanie1.exe
+E:\NetJava\Zadanie1\bin\Debug\Zadanie1.pdb
+E:\NetJava\Zadanie1\obj\Debug\Zadanie1.exe
+E:\NetJava\Zadanie1\obj\Debug\Zadanie1.pdb

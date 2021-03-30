@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "R2PaP69wlTVpBW6wL3pCdTD8lmOhc351wF+SWWt0y+OTOHqCcir5FA6drywBrQexlJ7ALfyfhBTB/KAf1Ck5eQ==",
+  "success": true,
+  "projectFilePath": "E:\\NetJava\\API\\Zadanie2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Paweł\\.nuget\\packages\\controlzex\\5.0.0\\controlzex.5.0.0.nupkg.sha512",
+    "C:\\Users\\Paweł\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\Paweł\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Paweł\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
