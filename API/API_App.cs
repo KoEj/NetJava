@@ -47,7 +47,7 @@ namespace API
 
                 var read = body.Split("\"");
                 if (read[3] == "0") richTextBox1.Text = "Brak wyników w bazie!";
-                else if (read[3]=="1") richTextBox1.Text ="Netflix ID: " + read[9] + "\nTytuł: " + read[13] + "\nData usunięcia: " + read[21];
+                else richTextBox1.Text ="Netflix ID: " + read[9] + "\nTytuł: " + read[13] + "\nData usunięcia: " + read[21];
 
 
                 //{"COUNT":"1","ITEMS":[{"netflixid":"60000861","title":"American Psycho",

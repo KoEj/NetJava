@@ -19,3 +19,11 @@ E:\NetJava\API\bin\Debug\netcoreapp3.1\ControlzEx.dll
 E:\NetJava\API\bin\Debug\netcoreapp3.1\Microsoft.Xaml.Behaviors.dll
 E:\NetJava\API\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 E:\NetJava\API\obj\Debug\netcoreapp3.1\Zadanie2.Properties.Resources.resources
+E:\NetJava\API\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+E:\NetJava\API\bin\Debug\netcoreapp3.1\EntityFramework.dll
+E:\NetJava\API\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+E:\NetJava\API\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+E:\NetJava\API\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+E:\NetJava\API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+E:\NetJava\API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\NetJava\API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
