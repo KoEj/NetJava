@@ -84,7 +84,8 @@ namespace API
                     for (int i = 0; i < n; i++)
                     {
                         int j = i * 48;
-                        richTextBox2.Text = "Netflix ID: " + read[j + 9] + "\nTytuł: " + read[j + 13] + "\nOpis: " + read[j + 21] + "\nRok premiery: " + read[j + 33] + "\nData wygasniecia filmu: " + read[j + 45];
+                        var description = read[j + 21].Split("<");
+                        richTextBox2.Text = "Netflix ID: " + read[j + 9] + "\nTytuł: " + read[j + 13] + "\nOpis: " + description[0] + "\nRok premiery: " + read[j + 33] + "\nData wygasniecia filmu: " + read[j + 45];
                     }
                 }
                                                                                                     //download
