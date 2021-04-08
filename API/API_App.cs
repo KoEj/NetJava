@@ -86,12 +86,12 @@ namespace API
                     {
                         int j = i * 48;
                         var description = read[j + 21].Split("<");
-                        context.Movies.Add(new Movie { ID = read[j + 9], title = read[j + 13], description = description[0], premiere = read[j + 33], date_exp = read[j + 45] });
+                        context.Movies.Add(new Movie { ID = int.Parse(read[j + 9]), title = read[j + 13], description = description[0], premiere = int.Parse(read[j + 33]), date_exp = read[j + 45] });
                         richTextBox2.Text = "Netflix ID: " + read[j + 9] + "\nTytuł: " + read[j + 13] + "\nOpis: " + description[0] + "\nRok premiery: " + read[j + 33] + "\nData wygasniecia filmu: " + read[j + 45];
                     }
                 }
                 // wysrywanie tego całehgo gówna
-
+                // TO DO!!!!!!
                 var students = (from s in context.Students select s).ToList<Student>();
                 foreach (var st in students)
                 {

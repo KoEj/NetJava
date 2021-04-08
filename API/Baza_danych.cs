@@ -15,7 +15,7 @@ namespace API
         public string title { set; get; }
         public string description { set; get; }
         public int premiere { set; get; }
-        public string date { set; get; }
+        public string date_exp { set; get; }
     }
 
     public class MOVIE_DB_Context : DbContext
