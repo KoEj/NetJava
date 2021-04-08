@@ -81,7 +81,11 @@ namespace API
                 else
                 {
                     int n = int.Parse(read[3]);
-                    richTextBox2.Text = "Netflix ID: " + read[9] + "\nTytuł: " + read[13] + "\nOpis: " + read[21] + "\nRok premiery: " + read[33] + "\nData wygasniecia filmu: " + read[45] + "\n" + read[57];
+                    for (int i = 0; i < n; i++)
+                    {
+                        int j = i * 48;
+                        richTextBox2.Text = "Netflix ID: " + read[j + 9] + "\nTytuł: " + read[j + 13] + "\nOpis: " + read[j + 21] + "\nRok premiery: " + read[j + 33] + "\nData wygasniecia filmu: " + read[j + 45];
+                    }
                 }
                                                                                                     //download
                                                          //57 nowa linia                                                                                 //read[51] +
