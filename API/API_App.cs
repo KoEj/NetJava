@@ -48,7 +48,7 @@ namespace API
                 var read = body.Split("\"");
                 //richTextBox1.Text = body;
                 if (read[3] == "0") richTextBox1.Text = "Brak wyników w bazie!";
-                else richTextBox1.Text = "Netflix ID: " + read[9] + "\nTytuł: " + read[13] + "\nData usunięcia: " + read[21];
+                else richTextBox1.Text = "Ostatnio usunięty film: \nNetflix ID: " + read[9] + "\nTytuł: " + read[13] + "\nData usunięcia: " + read[21];
 
 
                 //{"COUNT":"1","ITEMS":[{"netflixid":"60000861","title":"American Psycho",
@@ -89,17 +89,15 @@ namespace API
                         var description = read[j + 21].Split("<");
                         context.Movies.Add(new Movie { ID = int.Parse(read[j + 9]), netflixID = int.Parse(read[j + 9]), title = read[j + 13], description = description[0], premiere = int.Parse(read[j + 33]), date_exp = read[j + 45] });
                         //richTextBox2.Text = "Netflix ID: " + read[j + 9] + "\nTytuł: " + read[j + 13] + "\nOpis: " + description[0] + "\nRok premiery: " + read[j + 33] + "\nData wygasniecia filmu: " + read[j + 45];
-                        context.SaveChanges();                 
+                        context.SaveChanges();
+                    }
+
+                    var movies = (from s in context.Movies select s).ToList<Movie>();
+                    foreach (var st in movies)
+                    {
+                        richTextBox2.Text += "\nNetflixID: " + st.netflixID + "\nTytul: " + st.title + "\nOpis: " + st.description + "\nRok premiery: " + st.premiere + "\nData wygasniecia filmu: " + st.date_exp + "\n\n";
                     }
                 }
-                // wysrywanie tego całehgo gówna
-                // TO DO!!!!!!
-                var movies = (from s in context.Movies select s).ToList<Movie>();
-                foreach (var st in movies)
-                {
-                    richTextBox2.Text = "\nNetflixID: " + st.netflixID + "\nTytul: " + st.title + "\nOpis: " + st.description + "\nRok premiery: " + st.premiere + "\nData wygasniecia filmu: " + st.date_exp;
-                }
-
 
                 /*
                  * {"COUNT":"22","ITEMS":[{"netflixid":"80100648","title":"The Infiltrator","image":"https://occ-0-2773-2774.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABbto1zY2QhLF7uva7FMogD_oW0oFSBVuPxayhUJS4-JoJo1feknVHk6RpzB-hJrrFjVwoVw9apl8PpheiBj4fVjFMQ.jpg?r=d3c","synopsis":"A canny federal agent navigates a deadly world in which one mistake could get him killed: the criminal underworld of Colombia, ruled by Pablo Escobar.<br><b>Expires on 2021-04-08</b>","rating":"7","type":"movie","released":"2016","runtime":"2h6m","largeimage":"https://occ-0-114-116.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABSCw_hM_WWEaQE0P9a3zQxNLJ3TfRUwzD8jfGdf-qsvQL1a7KxHObZDIyLcY9zL2gvQAuWiIjqq4WPOS57xk15TY3d-h.jpg?r=7b6","unogsdate":"2021-04-08","imdbid":"tt1355631","download":"1"},
@@ -116,9 +114,11 @@ namespace API
             symbol = baza.LoadingStates(nazwa);
             label2.Text = symbol;
 
-            DB_expiring();
-
-            if (symbol != "Brak znalezienia") last_deleted();
+            if (symbol != "Brak znalezienia")
+            {
+                last_deleted();
+                DB_expiring();
+            }
             else MessageBox.Show("Nie ma takiego państwa!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
