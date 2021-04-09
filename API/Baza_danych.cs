@@ -17,9 +17,11 @@ namespace API
         public string description { set; get; }
         public int premiere { set; get; }
         public string date_exp { set; get; }
+        public string csymbol { set; get; }
+
     }
 
-    public class MOVIE_DTB_Context : DbContext
+    public class MOVIE_DataB_Context : DbContext
     {
         public virtual DbSet<Movie> Movies { get; set; }
     }

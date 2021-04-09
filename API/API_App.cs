@@ -56,9 +56,9 @@ namespace API
             }
         }
 
-        public async void DB_expiring()
+        public async void DB_expiring(string symbol)
         {
-            var context = new MOVIE_DTB_Context();
+            var context = new MOVIE_DataB_Context();
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
@@ -87,7 +87,7 @@ namespace API
                     {
                         int j = i * 48;
                         var description = read[j + 21].Split("<");
-                        context.Movies.Add(new Movie { ID = int.Parse(read[j + 9]), netflixID = int.Parse(read[j + 9]), title = read[j + 13], description = description[0], premiere = int.Parse(read[j + 33]), date_exp = read[j + 45] });
+                        context.Movies.Add(new Movie { netflixID = int.Parse(read[j + 9]), title = read[j + 13], description = description[0], premiere = int.Parse(read[j + 33]), date_exp = read[j + 45], csymbol=symbol });
                         //richTextBox2.Text = "Netflix ID: " + read[j + 9] + "\nTytuł: " + read[j + 13] + "\nOpis: " + description[0] + "\nRok premiery: " + read[j + 33] + "\nData wygasniecia filmu: " + read[j + 45];
                         context.SaveChanges();
                     }
@@ -95,7 +95,7 @@ namespace API
                     var movies = (from s in context.Movies select s).ToList<Movie>();
                     foreach (var st in movies)
                     {
-                        richTextBox2.Text += "\nNetflixID: " + st.netflixID + "\nTytul: " + st.title + "\nOpis: " + st.description + "\nRok premiery: " + st.premiere + "\nData wygasniecia filmu: " + st.date_exp + "\n\n";
+                        richTextBox2.Text += "\nNetflixID: " + st.netflixID + "\nTytul: " + st.title + "\nOpis: " + st.description + "\nRok premiery: " + st.premiere + "\nData wygasniecia filmu: " + st.date_exp + "\nPaństwo (symbol): " + st.csymbol + "\n\n";
                     }
                 }
 
@@ -104,6 +104,19 @@ namespace API
                  * {"netflixid":"80036832","title":"How to Change the World","image":"https://occ-0-2717-360.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABYtukAQro9yQfGCsTcnyfV9rtMnt9YuvdxmbJe5Vgc3F5NaCoA1x6xt2D6gw0qEPfMNKdjUjbi8nHBbLfHe74o0K6Q.jpg?r=bcb","synopsis":"In the 1970s, a group of activists who gathered to protest nuclear testing formed the iconic Greenpeace environmental organization.<br><b>Expires on 2021-04-09</b>","rating":"7.6","type":"movie","released":"2015","runtime":"1h50m","largeimage":"https://occ-0-1068-92.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABV71SZ3lvUVyTuCI-t-Renv0F55kA0aN5hA6JhCbgle_MDzY3UGlhApRLbkyd9Wxm7llNa92IVM7iHkEOb1WzQq-PUE9.jpg?r=784","unogsdate":"2021-04-09","imdbid":"tt4144504","download":"0"}
             */
             }
+        }
+
+        public void DB_sort()
+        {
+            var context = new MOVIE_DataB_Context();
+            string symbol_sort = textBox2.Text;
+            var movies = context.Movies.Where(s => s.csymbol==symbol_sort).ToList<Movie>();
+            richTextBox2.Text = "";
+            foreach (var st in movies)
+            {
+                richTextBox2.Text += "\nNetflixID: " + st.netflixID + "\nTytul: " + st.title + "\nOpis: " + st.description + "\nRok premiery: " + st.premiere + "\nData wygasniecia filmu: " + st.date_exp + "\nPaństwo (symbol): " + st.csymbol + "\n\n";
+            }
+
         }
 
 
@@ -116,10 +129,14 @@ namespace API
 
             if (symbol != "Brak znalezienia")
             {
-                last_deleted();
-                DB_expiring();
+                if (textBox2 == null || string.IsNullOrWhiteSpace(textBox2.Text)) {
+                    last_deleted();
+                    DB_expiring(symbol);
+                }
             }
             else MessageBox.Show("Nie ma takiego państwa!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            if (textBox2 != null && !string.IsNullOrWhiteSpace(textBox2.Text)) DB_sort();
 
         }
     }

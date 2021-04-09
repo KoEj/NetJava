@@ -36,6 +36,8 @@ namespace API
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -104,11 +106,29 @@ namespace API
             this.richTextBox2.TabIndex = 6;
             this.richTextBox2.Text = "";
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(493, 488);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(201, 23);
+            this.textBox2.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(493, 469);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(201, 15);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Sortowanie bazy danych po symbolu";
+            // 
             // API_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1147, 620);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label3);
@@ -132,6 +152,8 @@ namespace API
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label4;
     }
 }
 
