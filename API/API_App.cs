@@ -140,10 +140,10 @@ namespace API
             }
             else MessageBox.Show("Nie ma takiego państwa!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+
+
             if (textBox2 != null && !string.IsNullOrWhiteSpace(textBox2.Text)) DB_sort();
-
-            display();
-
+            else display();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -152,11 +152,18 @@ namespace API
             var movies = (from s in context.Movies select s).ToList<Movie>();
             //czyszczenie bazy danych
 
-
-            for (int i =1000; i >=0; i--)
+            //int i = 1;
+            //while (movies.Count>0)
+            //{
+            //    var s = context.Movies.First(x => x.Id == i);
+            //    if (s!=null) context.Movies.Remove(s);
+            //    i++;
+            //}
+            //context.SaveChanges();
+            for (int i = 1000; i >= 0; i--)
             {
                 var s = context.Movies.FirstOrDefault(x => x.Id == i);
-                if (s!=null) context.Movies.Remove(s);
+                if (s != null) context.Movies.Remove(s);
             }
             context.SaveChanges();
 
