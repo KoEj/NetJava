@@ -20,6 +20,7 @@ namespace API
             InitializeComponent();
             label2.Text = "symbol";
             label3.Text = "";
+            display();
         }
 
         public async void last_deleted()
@@ -82,20 +83,23 @@ namespace API
                 if (read[3] == "0") richTextBox2.Text = "Brak wyników w bazie!";
                 else
                 {
-                    n = int.Parse(read[3]);
-                    for (int i = 0; i < n; i++)
-                    {
-                        int j = i * 48;
-                        var description = read[j + 21].Split("<");
-                        context.Movies.Add(new Movie { netflixID = int.Parse(read[j + 9]), title = read[j + 13], description = description[0], premiere = int.Parse(read[j + 33]), date_exp = read[j + 45], csymbol=symbol });
-                        //richTextBox2.Text = "Netflix ID: " + read[j + 9] + "\nTytuł: " + read[j + 13] + "\nOpis: " + description[0] + "\nRok premiery: " + read[j + 33] + "\nData wygasniecia filmu: " + read[j + 45];
-                        context.SaveChanges();
-                    }
 
-                    var movies = (from s in context.Movies select s).ToList<Movie>();
-                    foreach (var st in movies)
+                    var movies = context.Movies.Where(s => s.csymbol == symbol).ToList<Movie>();
+
+                    if (movies.Count == 0)
                     {
-                        richTextBox2.Text += "\nNetflixID: " + st.netflixID + "\nTytul: " + st.title + "\nOpis: " + st.description + "\nRok premiery: " + st.premiere + "\nData wygasniecia filmu: " + st.date_exp + "\nPaństwo (symbol): " + st.csymbol + "\n\n";
+
+                        n = int.Parse(read[3]);
+                        for (int i = 0; i < n; i++)
+                        {
+                            int j = i * 48;
+                            var description = read[j + 21].Split("<");
+                            context.Movies.Add(new Movie { netflixID = int.Parse(read[j + 9]), title = read[j + 13], description = description[0], premiere = int.Parse(read[j + 33]), date_exp = read[j + 45], csymbol = symbol });
+                            //richTextBox2.Text = "Netflix ID: " + read[j + 9] + "\nTytuł: " + read[j + 13] + "\nOpis: " + description[0] + "\nRok premiery: " + read[j + 33] + "\nData wygasniecia filmu: " + read[j + 45];
+                            context.SaveChanges();
+                        }
+                        display();
+
                     }
                 }
 
@@ -138,6 +142,36 @@ namespace API
 
             if (textBox2 != null && !string.IsNullOrWhiteSpace(textBox2.Text)) DB_sort();
 
+            display();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var context = new MOVIE_DataB_Context();
+            var movies = (from s in context.Movies select s).ToList<Movie>();
+            //czyszczenie bazy danych
+
+
+            for (int i =1000; i >=0; i--)
+            {
+                var s = context.Movies.FirstOrDefault(x => x.Id == i);
+                if (s!=null) context.Movies.Remove(s);
+            }
+            context.SaveChanges();
+
+            display();
+        }
+
+        private void display()
+        {
+            var context = new MOVIE_DataB_Context();
+            var movies = (from s in context.Movies select s).ToList<Movie>();
+            richTextBox2.Text = "";
+            foreach (var st in movies)
+            {
+                richTextBox2.Text += "\nNetflixID: " + st.netflixID + "\nTytul: " + st.title + "\nOpis: " + st.description + "\nRok premiery: " + st.premiere + "\nData wygasniecia filmu: " + st.date_exp + "\nPaństwo (symbol): " + st.csymbol + "\n\n";
+            }
         }
     }
 }
