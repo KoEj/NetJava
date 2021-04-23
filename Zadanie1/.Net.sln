@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "..\Tests\Tests.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowApp", "..\WindowApp\WindowApp.csproj", "{5C753BF6-003A-420D-A796-AFC4E0D1D991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zadanie2", "..\API\Zadanie2.csproj", "{BA461CA8-B95B-4EB1-94B3-0351F3D5B403}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zadanie2", "..\API\Zadanie2.csproj", "{BA461CA8-B95B-4EB1-94B3-0351F3D5B403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace API
 {
@@ -131,15 +132,7 @@ namespace API
             symbol = baza.LoadingStates(nazwa);
             label2.Text = symbol;
 
-            if (symbol != "Brak znalezienia")
-            {
-                if (textBox2 == null || string.IsNullOrWhiteSpace(textBox2.Text)) {
-                    last_deleted();
-                    DB_expiring(symbol);
-                }
-            }
-            else MessageBox.Show("Nie ma takiego państwa!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            symbol_read(symbol);
 
 
             if (textBox2 != null && !string.IsNullOrWhiteSpace(textBox2.Text)) DB_sort();
@@ -179,6 +172,19 @@ namespace API
             {
                 richTextBox2.Text += "\nNetflixID: " + st.netflixID + "\nTytul: " + st.title + "\nOpis: " + st.description + "\nRok premiery: " + st.premiere + "\nData wygasniecia filmu: " + st.date_exp + "\nPaństwo (symbol): " + st.csymbol + "\n\n";
             }
+        }
+
+        private void symbol_read(string symbol)
+        {
+            if (symbol != "Brak znalezienia")
+            {
+                if (textBox2 == null || string.IsNullOrWhiteSpace(textBox2.Text))
+                {
+                    last_deleted();
+                    DB_expiring(symbol);
+                }
+            }
+            else MessageBox.Show("Nie ma takiego państwa!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
