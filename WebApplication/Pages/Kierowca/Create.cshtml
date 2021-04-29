@@ -1,0 +1,54 @@
+﻿@page
+@model WebApplication.Pages.Kierowca.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Kierowca</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Kierowca.ID" class="control-label"></label>
+                <input asp-for="Kierowca.ID" class="form-control" />
+                <span asp-validation-for="Kierowca.ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kierowca.IMIE" class="control-label"></label>
+                <input asp-for="Kierowca.IMIE" class="form-control" />
+                <span asp-validation-for="Kierowca.IMIE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kierowca.NAZWISKO" class="control-label"></label>
+                <input asp-for="Kierowca.NAZWISKO" class="form-control" />
+                <span asp-validation-for="Kierowca.NAZWISKO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kierowca.WIEK" class="control-label"></label>
+                <input asp-for="Kierowca.WIEK" class="form-control" />
+                <span asp-validation-for="Kierowca.WIEK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kierowca.PLEC" class="control-label"></label>
+                <input asp-for="Kierowca.PLEC" class="form-control" />
+                <span asp-validation-for="Kierowca.PLEC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,43 @@
+﻿@page
+@model WebApplication.Pages.Kierowca.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Kierowca</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kierowca.IMIE)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kierowca.IMIE)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kierowca.NAZWISKO)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kierowca.NAZWISKO)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kierowca.WIEK)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kierowca.WIEK)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kierowca.PLEC)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kierowca.PLEC)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Kierowca.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
