@@ -75,3 +75,4 @@ E:\NetJava\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csproj.CopyComp
 E:\NetJava\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.dll
 E:\NetJava\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.pdb
 E:\NetJava\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.genruntimeconfig.cache
+E:\NetJava\WebApplication\obj\Debug\netcoreapp3.1\Razor\Pages\CompletedOrders.cshtml.g.cs
